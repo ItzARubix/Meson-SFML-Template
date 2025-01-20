@@ -1,12 +1,11 @@
 # Meson-SFML-Template
 Template repository for using SFML with the Meson build tool
 
-This is a Template repository that you can use if you intend to create a program using SFML, but want to use Meson instead of CMake as your build system. 
-
-(The rest of this README is totally wrong, I will update it later :3)
+# What is this?
+[Simple and Fast Multimedia Library](https://www.sfml-dev.org/) (SFML) is a library that is used to create multimedia applications. It provides tools to handle OpenGL contexts/windows, audio, network, and other system components. SFML also has their own [CMake project template](https://github.com/SFML/cmake-sfml-project) which can be used if you want to start using SFML to create one of your own projects. This repository aims to serve a similar purpose for individuals who wish to use Meson instead of CMake as their build tool of choice.
 
 # Dependencies
-NylCaster relies on [Simple and Fast Multimedia Library](https://www.sfml-dev.org/). You may use a systemwide installation of SFML, but this project also provides SFML as a Git submodule in case you are unable (or do not want to) install SFML systemwide. Instructions on how to use a systemwide SFML install and how to use the Git subproject are provided below (using a systemwide SFML install will make the compile time of this project much faster).
+When using this template, you are given the choice between using a systemwide installation of SFML, or using SFML as a Git submodule in case you are unable (or do not want to) install SFML systemwide. Instructions on how to use a systemwide SFML install and how to use the Git subproject are provided below (using a systemwide SFML install will drastically decrease compile times).
 
 (LINUX ONLY) If you intend to use the Git submodule for SFML, you need to install all of SFML's dependencies, which allow SFML to be compiled. Here's what you need:
 - `libxrandr-dev`
@@ -21,12 +20,9 @@ NylCaster relies on [Simple and Fast Multimedia Library](https://www.sfml-dev.or
 
 (I imagine that the non-dev versions of all of these packages work as well). Use your distro's package manager to install all of these. (On Windows, I'm pretty sure SFML uses packages that are shipped with the OS, so you don't need to install anything additional).
 
-Finally, make sure you have both Meson and CMake installed and available in your PATH. 
+Finally, make sure you have both Meson and CMake installed and available in your PATH. This can be done through `pip`, but it's recommended to use your package manager if you can. See [Meson's installation page](https://mesonbuild.com/Getting-meson.html) for more information. Meson and CMake both have a number of dependencies which must be installed for them to work correctly, and Ninja (one of Meson's dependencies) should be included in your PATH as well. As always, since package managers tend to handle dependencies for you, it's recommended to install through them if you are able to.
 
 # Compilation/Installation guide
-This project uses `meson`, a build tool that automatically handles compilation and linking.
-
-In order to build NylCaster and run it, you must ensure that you have `meson` (and all its dependencies, notably `ninja`) on your system. It is recommended that you do this through your distro's package manager, but it can also be done through `pip`. See [Meson's installation page](https://mesonbuild.com/Getting-meson.html) for more information.
 
 ## If you have a systemwide SFML install
 - Make sure Meson and SFML are both installed
@@ -34,7 +30,7 @@ In order to build NylCaster and run it, you must ensure that you have `meson` (a
 - Run `meson setup builddir -DuseSystemSFML=true`
 - Run `cd builddir`
 - Run `meson compile`
-- The executable should now be in the build directory. To run it, run `./NylCaster`
+- The executable should now be in the build directory. 
 
 ## If you want to use the SFML submodule
 - Make sure Meson and CMake are both installed
@@ -42,7 +38,4 @@ In order to build NylCaster and run it, you must ensure that you have `meson` (a
 - Run `meson setup builddir`
 - Run `cd builddir`
 - Run `meson compile`
-- The executable should now be in the build directory. To run it, run `./NylCaster`
-
-# Additional Notes
-The executable requires the user to create a `level.txt` file in the same directory as the executable in order for the exeuctable to run. This can be done with `echo "10.0 -0.5 10.0 0.5" > level.txt` in Bash while you're inside the `builddir`, for example.  
+- The executable should now be in the build directory. 
