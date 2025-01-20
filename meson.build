@@ -1,9 +1,10 @@
-project('NylCaster', 'cpp')
+project('YourProject', 'cpp')
 useSystemSFML = get_option('useSystemSFML')
+programName = 'YourProject'
 
 if useSystemSFML
   sfmldep = dependency('sfml-all')
-  executable('NylCaster', 'main.cpp', dependencies : sfmldep)
+  executable(programName, 'main.cpp', dependencies : sfmldep)
 else
   cmake = import('cmake')
   sfml_proj = cmake.subproject('SFML')
@@ -18,8 +19,8 @@ else
     winmm = compiler.find_library('winmm', required: true)
     ogl = compiler.find_library('opengl32', required: true)
     sfml_main = sfml_proj.dependency('sfml-main')
-    executable('NylCaster', 'main.cpp', dependencies : [sfml_graphics, sfml_window, sfml_system, sfml_audio, sfml_network, sfml_main, winmm, ogl], win_subsystem: 'console')
+    executable(programName, 'main.cpp', dependencies : [sfml_graphics, sfml_window, sfml_system, sfml_audio, sfml_network, sfml_main, winmm, ogl], win_subsystem: 'console')
   else
-    executable('NylCaster', 'main.cpp', dependencies : [sfml_graphics, sfml_window, sfml_system, sfml_audio, sfml_network])
+    executable(programName, 'main.cpp', dependencies : [sfml_graphics, sfml_window, sfml_system, sfml_audio, sfml_network])
   endif
 endif
