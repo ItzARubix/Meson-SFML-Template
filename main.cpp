@@ -20,9 +20,12 @@ int main() {
 
 	// Create the window.
 	sf::Window window(sf::VideoMode({windowWidth,windowHeight}), "YourProject"); // The OpenGL context is created automatically when this is called. If you want to mess around with the context, check the SFML documentation.
-	window.setFramerateLimit(maxFramerate); // Comment this line out for uncapped.
+	
+	// Only one of setFramerateLimit(maxFramerate) and setVerticalSyncEnabled(true) can be called. If you use one, comment the other out.
+	// You can also comment them both out for uncapped FPS.
+	window.setFramerateLimit(maxFramerate);  
 	// window.setVerticalSyncEnabled(true); 
-	// Only one of setFramerateLimit and setVerticalSyncEnabled can be called. If you use one, comment the other out. 
+	
 
 	bool running {true};
 	while (running) { // Primary execution loop. This will run for as long as the window is open. 
