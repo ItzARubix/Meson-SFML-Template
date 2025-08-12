@@ -5,7 +5,7 @@ Template repository for using SFML with the Meson build tool
 [Simple and Fast Multimedia Library](https://www.sfml-dev.org/) (SFML) is a library that is used to create multimedia applications. It provides tools to handle OpenGL contexts/windows, audio, network, and other system components. SFML also has their own [CMake project template](https://github.com/SFML/cmake-sfml-project) which can be used if you want to start using SFML to create one of your own projects. This repository aims to serve a similar purpose for individuals who wish to use Meson instead of CMake as their build tool of choice.
 
 # Why not use `meson wrap install sfml`?
-It uses a highly outdated version of SFML by default. This template will pull from the SFML Github page, and you can choose which branch or commit you'd like to use (as a sidenote, it is recommended, though not necessary, that you run the appropriate `git submodule` commands in order to pick an up-to-date commit of SFML prior to running `meson setup builddir`, as if you follow the below instructions without doing so, the version of SFML that is used will also be old, which is the whole reason we don't use `meson wrap install sfml` in the first place). Similarly, if you choose to use your systemside install of SFML, you get to control which version of SFML you use, and can use the most up-to-date version if you desire.
+It uses a highly outdated version of SFML by default. This template will pull from the SFML Github page, and you can choose which branch or commit you'd like to use (as a sidenote, it is recommended, though not necessary, that you run `git submodule update --remote` followed by `meson setup --wite builddir` frequently after running `meson setup builddir`, in order to pick an up-to-date commit of SFML, as if you follow the below instructions without doing so, the version of SFML that is used will also be old, which is the whole reason we don't use `meson wrap install sfml` in the first place). Similarly, if you choose to use your systemside install of SFML, you get to control which version of SFML you use, and can use the most up-to-date version if you desire.
 
 # Dependencies
 When using this template, you are given the choice between using a systemwide installation of SFML, or using SFML as a Git submodule in case you are unable (or do not want to) install SFML systemwide. Instructions on how to use a systemwide SFML install and how to use the Git subproject are provided below (using a systemwide SFML install will drastically decrease compile times).
@@ -41,4 +41,8 @@ Finally, make sure you have both Meson and CMake installed and available in your
 - Run `meson setup builddir`
 - Run `cd builddir`
 - Run `meson compile`
-- The executable should now be in the build directory. 
+- The executable should now be in the build directory.
+### Whenever you want to update the SFML submodule, follow these instructions:
+- `cd` out of your `builddir` into your project root
+- Run `git submodule update --remote`
+- Run `meson setup --wipe builddir`
