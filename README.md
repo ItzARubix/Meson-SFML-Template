@@ -38,11 +38,12 @@ Finally, make sure you have both Meson and CMake installed and available in your
 ## If you want to use the SFML submodule
 - Make sure Meson and CMake are both installed
 - Clone and `cd` into this repository
+- Run `git submodule update --init --remote`
 - Run `meson setup builddir`
 - Run `cd builddir`
 - Run `meson compile`
 - The executable should now be in the build directory.
 ### Whenever you want to update the SFML submodule, follow these instructions:
-- `cd` out of your `builddir` into your project root
+- `cd` out of your `builddir` and into your project root (this is the directory that directly contains `meson.build`) if you aren't there already
 - Run `git submodule update --remote`
 - Run `meson setup --wipe builddir`
