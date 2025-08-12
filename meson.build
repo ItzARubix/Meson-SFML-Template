@@ -1,4 +1,5 @@
-project('YourProject', 'cpp')
+project('YourProject', 'cpp', version : '0.1', meson_version : '>= 1.3.0', default_options : ['warning_level=3', 'cpp_std=c++14', 'default_library=static'])
+# Change all of the above to your liking.  
 useSystemSFML = get_option('useSystemSFML')
 programName = 'YourProject'
 
