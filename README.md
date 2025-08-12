@@ -4,6 +4,9 @@ Template repository for using SFML with the Meson build tool
 # What is this?
 [Simple and Fast Multimedia Library](https://www.sfml-dev.org/) (SFML) is a library that is used to create multimedia applications. It provides tools to handle OpenGL contexts/windows, audio, network, and other system components. SFML also has their own [CMake project template](https://github.com/SFML/cmake-sfml-project) which can be used if you want to start using SFML to create one of your own projects. This repository aims to serve a similar purpose for individuals who wish to use Meson instead of CMake as their build tool of choice.
 
+# Why not use `meson wrap install sfml`?
+It uses a highly outdated version of SFML by default. This template will pull from the SFML Github page to ensure the most recent version of SFML is being used, unless you choose to use your Systemwide SFML install, in which case this template will just use that (still allowing you to control what version you're using, and use the most up-to-date version of SFML if you so desire).
+
 # Dependencies
 When using this template, you are given the choice between using a systemwide installation of SFML, or using SFML as a Git submodule in case you are unable (or do not want to) install SFML systemwide. Instructions on how to use a systemwide SFML install and how to use the Git subproject are provided below (using a systemwide SFML install will drastically decrease compile times).
 
