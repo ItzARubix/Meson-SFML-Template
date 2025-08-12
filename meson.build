@@ -7,7 +7,8 @@ programName = 'YourProject'
 
 if useSystemSFML
   sfmldep = dependency('sfml-all')
-  executable(programName, 'main.cpp', dependencies : sfmldep)
+  opengldep = dependency('opengl')
+  executable(programName, 'main.cpp', dependencies : [sfmldep, opengldep])
 else
   cmake = import('cmake')
   sfml_proj = cmake.subproject('SFML')
