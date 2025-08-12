@@ -28,6 +28,7 @@ Finally, make sure you have both Meson and CMake installed and available in your
 # Compilation/Installation guide
 
 ## If you have a systemwide SFML install
+I don't guarantee that this works on anything other than Arch Linux, which is where I test this. In particular, if you intend to use a systemwide SFML install on Windows, it's likely that the `meson.build` file will not work without additional changes. The systemwide SFML install option is supposed to be specifically for Linux installs; on Windows, build using the submodule for best results. (If you're better at Meson than I am, feel free to fix up the `meson.build` file and submit a pull request, I'd love for this to work on Windows too).
 - Make sure Meson and SFML are both installed
 - Clone and `cd` into this repository
 - Run `meson setup builddir -DuseSystemSFML=true`
